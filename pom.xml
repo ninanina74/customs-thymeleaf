@@ -4,10 +4,14 @@
   <groupId>com.example</groupId>
   <artifactId>customs-thymeleaf</artifactId>
   <version>0.0.2-SNAPSHOT</version>
+
   <properties>
     <java.version>17</java.version>
     <spring-boot.version>3.3.2</spring-boot.version>
+    <!-- 這行讓大多數外掛自動使用 JDK 17 -->
+    <maven.compiler.release>17</maven.compiler.release>
   </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -19,6 +23,7 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -51,8 +56,19 @@
       <version>2.9.2</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
+      <!-- 關鍵：指定用 Java 17 編譯 -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
