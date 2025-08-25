@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title th:replace="~{::title}">報關平台</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" th:href="@{/css/custom.css}"/>
+</head>
+<body class="bg-light">
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-semibold" href="#">進口貨物流程序平台</a>
+    <div class="ms-auto">
+      <span class="me-2" th:text="${#httpServletRequest.remoteUser}">user</span>
+      <a class="btn btn-outline-secondary btn-sm" th:href="@{/logout}">登出</a>
+    </div>
+  </div>
+</nav>
+<main class="container my-4">
+  <div th:replace="~{::section}"></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/js/flow.js}"></script>
+</body>
+</html>
